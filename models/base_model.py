@@ -3,8 +3,6 @@
 import models
 import uuid
 from datetime import datetime
-import sys
-print(sys.path)
 
 
 class BaseModel:
@@ -27,7 +25,6 @@ class BaseModel:
                 self.created_at = datetime.now()
                 self.updated_at = datetime.now()
                 models.storage.new(self)
-                
 
         except AttributeError:
             pass
