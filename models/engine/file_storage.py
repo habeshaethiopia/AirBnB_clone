@@ -2,25 +2,27 @@
 """the persstant storage"""
 import json
 
-
+from models.base_model import BaseModel
 class FileStorage:
     """the file storage class"""
-    __file_path = "file.json"
+    __file_path = "models/engine/file.json"
     __objects = {}
 
     def all(self):
         """Return the dictionary of object"""
-        return self.__objects
-
+        return FileStorage.__objects
     def new(self, obj):
         """create anew object"""
-        key = "{}.{}".format(obj.__class__.name, obj.id)
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj
 
     def save(self):
         """to json and save it to file"""
-        with open (self.__file_path, "w") as file:
-            file.write(json.dumps(self.__objects))
+        saved_dict = {}
+        for key , obj in FileStorage.__objects.items():
+            saved_dict[key] = obj.to_dict()
+        with open (FileStorage.__file_path, "w") as file:
+            file.write(json.dumps(saved_dict))
     def reload(self):
         deseri = {}
         """To relode from the json file"""
@@ -28,6 +30,6 @@ class FileStorage:
             with open (self.__file_path) as file:
                 deseri = json.loads(file.read())
             for key,value in deseri.items():
-                self.__objects[key] = value
+                FileStorage.__objects[key] = BaseModel(value)
         except FileNotFoundError:
             pass
