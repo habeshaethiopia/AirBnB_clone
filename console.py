@@ -9,7 +9,7 @@ class console(cmd.Cmd):
 
     def do_EOF(self, arg):
         """returns 0 and eixit the terminal"""
-        return 0
+        return True
 
     def do_quit(self, arg):
         """You can use it to quit"""
@@ -25,5 +25,5 @@ if __name__ == '__main__':
     import sys
     if not sys.stdin.isatty():
         console().onecmd(sys.stdin.read())
-    else: 
+    else:
         console().cmdloop()

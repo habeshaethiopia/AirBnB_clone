@@ -9,13 +9,14 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """class instantiontion"""
-        self.id = uuid.uuid4()
+        self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
     def __str__(self):
         """the string representation"""
-        return ("[{}] ({}) {}".format(str(self.__class__.__name__), str(self.id), str(self.__dict__)))
+        return ("[{}] ({}) {}".
+                format(self.__class__.__name__, self.id, self.__dict__))
 
     def save(self):
         """updates the public instance attribute"""
