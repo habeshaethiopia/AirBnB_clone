@@ -41,21 +41,21 @@ This first step is very important because you will use what you build during thi
 <p><strong>Read or watch</strong>:</p>
 
 <ul>
-<li><a href="/rltoken/8ecCwE6veBmm3Nppw4hz5A" title="cmd module" target="_blank">cmd module</a> </li>
-<li><a href="/rltoken/uEy4RftSdKypoig9NFTvCg" title="cmd module in depth" target="_blank">cmd module in depth</a></li>
+<li><a href="" title="cmd module" target="_blank">cmd module</a> </li>
+<li><a href="" title="cmd module in depth" target="_blank">cmd module in depth</a></li>
 <li><strong>packages</strong> concept page</li>
-<li><a href="/rltoken/KfL9TqwdI69W6ttG6gTPPQ" title="uuid module" target="_blank">uuid module</a> </li>
-<li><a href="/rltoken/1d8I3jSKgnYAtA1IZfEDpA" title="datetime" target="_blank">datetime</a> </li>
-<li><a href="/rltoken/IlFiMB8UmqBG2CxA0AD3jA" title="unittest module" target="_blank">unittest module</a> </li>
-<li><a href="/rltoken/C_a0EKbtvKdMcwIAuSIZng" title="args/kwargs" target="_blank">args/kwargs</a> </li>
-<li><a href="/rltoken/tgNVrKKzlWgS4dfl3mQklw" title="Python test cheatsheet" target="_blank">Python test cheatsheet</a> </li>
-<li><a href="/rltoken/EvcaH9uTLlauxuw03WnkOQ" title="cmd module wiki page" target="_blank">cmd module wiki page</a></li>
-<li><a href="/rltoken/begh14KQA-3ov29KvD_HvA" title="python unittest" target="_blank">python unittest</a></li>
+<li><a href="" title="uuid module" target="_blank">uuid module</a> </li>
+<li><a href="" title="datetime" target="_blank">datetime</a> </li>
+<li><a href="" title="unittest module" target="_blank">unittest module</a> </li>
+<li><a href="" title="args/kwargs" target="_blank">args/kwargs</a> </li>
+<li><a href="" title="Python test cheatsheet" target="_blank">Python test cheatsheet</a> </li>
+<li><a href="" title="cmd module wiki page" target="_blank">cmd module wiki page</a></li>
+<li><a href="" title="python unittest" target="_blank">python unittest</a></li>
 </ul>
 
 <h2>Learning Objectives</h2>
 
-<p>At the end of this project, you are expected to be able to <a href="/rltoken/uV5eZkRZ_XEqYbgPd-0CWw" title="explain to anyone" target="_blank">explain to anyone</a>, <strong>without the help of Google</strong>:</p>
+<p>At the end of this project, you are expected to be able to <a href="" title="explain to anyone" target="_blank">explain to anyone</a>, <strong>without the help of Google</strong>:</p>
 
 <h3>General</h3>
 
@@ -106,7 +106,7 @@ This first step is very important because you will use what you build during thi
 <li>Allowed editors: <code>vi</code>, <code>vim</code>, <code>emacs</code></li>
 <li>All your files should end with a new line</li>
 <li>All your test files should be inside a folder <code>tests</code></li>
-<li>You have to use the <a href="/rltoken/op1-rQGlw0wwwqNBsn1yaw" title="unittest module" target="_blank">unittest module</a> </li>
+<li>You have to use the <a href="" title="unittest module" target="_blank">unittest module</a> </li>
 <li>All your test files should be python files (extension: <code>.py</code>)</li>
 <li>All your test files and folders should start by <code>test_</code></li>
 <li>Your file organization in the tests folder should be the same as your project</li>
