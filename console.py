@@ -5,7 +5,7 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     """the AirBnB clone cmd\n"""
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
 
     def do_EOF(self, arg):
         """returns 0 and eixit the terminal\n"""
@@ -20,6 +20,13 @@ class HBNBCommand(cmd.Cmd):
         self.onecmd(arg)
         return True
 
+    def emptyline(self):
+        return 0
+
+    def default(self,arg):
+        """when invalid input entered"""
+        print("invalid command\n")
+
 
 if __name__ == '__main__':
-   HBNBCommand().cmdloop()
+    HBNBCommand().cmdloop()
