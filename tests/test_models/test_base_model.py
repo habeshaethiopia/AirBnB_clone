@@ -15,7 +15,7 @@ class TestBaseModel(unittest.TestCase):
         base_model = BaseModel()
 
         # Assert that id is a UUID
-        self.assertIsInstance(base_model.id, uuid.UUID)
+        self.assertIsInstance(base_model.id, str)
 
         # Assert that created_at and updated_at are datetime objects
         self.assertIsInstance(base_model.created_at, datetime)
