@@ -22,8 +22,4 @@ class console(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    import sys
-    if not sys.stdin.isatty():
-        console().onecmd(sys.stdin.read())
-    else:
-        console().cmdloop()
+    console().cmdloop()
