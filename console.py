@@ -46,10 +46,12 @@ class HBNBCommand(cmd.Cmd):
                     if key.split(".")[0] == var[0]:
                         count = count + 1
                 print(count)
-
             if var[1].split("(")[0] == "show":
                 id = var[1].split("(")[1].split(")")[0]
                 self.do_show(var[0]+" " + id)
+            if var[1].split("(")[0] == "destroy":
+                id = var[1].split("(")[1].split(")")[0]
+                self.do_destroy(var[0]+" " + id)
 
         else:
             print("unknown command\n")
