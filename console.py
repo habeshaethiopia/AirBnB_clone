@@ -40,6 +40,13 @@ class HBNBCommand(cmd.Cmd):
         if var[0] in HBNBCommand.clss:
             if var[1] == "all()":
                 self.do_all(var[0])
+            if var[1] == "count()":
+                count = 0
+                for key in models.storage._FileStorage__objects.keys():
+                    if key.split(".")[0] == var[0]:
+                        count = count + 1
+                print(count)
+
         else:
             print("unknown command\n")
 
