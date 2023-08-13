@@ -36,15 +36,15 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, arg):
         """the default statements\n"""
-        self.onecmd(arg)
-        return True
+        var = arg.split(".", 1)
+        if var[0] in HBNBCommand.clss:
+            if var[1] == "all()":
+                self.do_all(var[0])
+        else:
+            print("unknown command\n")
 
     def emptyline(self):
         return 0
-
-    def default(self, arg):
-        """when invalid input entered"""
-        print("invalid command\n")
 
     def do_create(self, arg):
         "to creat the BaseModel object"
