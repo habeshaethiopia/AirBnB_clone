@@ -5,13 +5,26 @@ import models
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 
 
 class HBNBCommand(cmd.Cmd):
     """the AirBnB clone cmd\n"""
     prompt = "(hbnb) "
 
-    clss = {"User": User, "BaseModel": BaseModel}
+    clss = {
+        "User": User,
+        "BaseModel": BaseModel,
+        "Amenity": Amenity,
+        "City": City,
+        "Place": Place,
+        "Review": Review,
+        "State": State
+    }
 
     def do_EOF(self, arg):
         """returns 0 and eixit the terminal\n"""
