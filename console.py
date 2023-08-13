@@ -4,11 +4,14 @@ import cmd
 import models
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     """the AirBnB clone cmd\n"""
     prompt = "(hbnb) "
+
+    clss = {"User": User, "BaseModel": BaseModel}
 
     def do_EOF(self, arg):
         """returns 0 and eixit the terminal\n"""
@@ -34,10 +37,12 @@ class HBNBCommand(cmd.Cmd):
         "to creat the BaseModel object"
         if not arg:
             print("** class name missing **")
+        elif arg not in HBNBCommand.clss:
+            print("** class doesn't exist **")
         else:
-            arg = BaseModel()
-            arg.save()
-            print(arg.id)
+            obj = HBNBCommand.clss[arg]()
+            HBNBCommand.clss[arg].save(obj)
+            print(obj.id)
 
     def do_show(self, arg):
         """Prints the string representation of an
@@ -45,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split(" ")
         if not arg:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in HBNBCommand.clss:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -62,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split(" ")
         if not arg:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in HBNBCommand.clss:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -83,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
                 all_ls.append(str(value))
             if len(all_ls) > 0:
                 print(all_ls)
-        elif arg != "BaseModel":
+        elif arg not in HBNBCommand.clss:
             print("** class doesn't exist **")
         else:
             for key, value in models.storage._FileStorage__objects.items():
@@ -98,7 +103,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split(' ')
         if not arg:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in HBNBCommand.clss:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -120,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
             except AttributeError:
                 pass
             setattr(obj, args[2], args[3])
-            models.storage.save()
+            HBNBCommand.clss[arg[0]].save(obj)
 
 
 if __name__ == '__main__':

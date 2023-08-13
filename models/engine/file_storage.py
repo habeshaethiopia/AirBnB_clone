@@ -3,7 +3,7 @@
 import json
 
 from models.base_model import BaseModel
-
+from models.user import User
 
 class FileStorage:
     """the file storage class"""
@@ -34,6 +34,6 @@ class FileStorage:
             with open(self.__file_path) as file:
                 deseri = json.loads(file.read())
             for key, value in deseri.items():
-                FileStorage.__objects[key] = BaseModel(value)
+                FileStorage.__objects[key] = key.split('.')[0](**value)
         except FileNotFoundError:
             pass
