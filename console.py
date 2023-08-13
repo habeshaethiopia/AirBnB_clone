@@ -10,6 +10,8 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
+# for multiple splite
+import re
 
 
 class HBNBCommand(cmd.Cmd):
@@ -52,6 +54,15 @@ class HBNBCommand(cmd.Cmd):
             if var[1].split("(")[0] == "destroy":
                 id = var[1].split("(")[1].split(")")[0]
                 self.do_destroy(var[0]+" " + id)
+            if var[1].split("(")[0] == "update":
+                className = var[0]
+                att = re.split(r'[(),]', var[1])
+                id = att[1]
+                att_name = att[2]
+                att_value = att[3]
+
+                self.do_update(var[0]+" " + id + " " +
+                               att_name+" " + att_value)
 
         else:
             print("unknown command\n")
