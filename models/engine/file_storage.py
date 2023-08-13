@@ -7,6 +7,7 @@ from models.user import User
 
 class FileStorage:
     """the file storage class"""
+    clss = {"User": User, "BaseModel": BaseModel}
     __file_path = "models/engine/file.json"
     __objects = {}
 
@@ -34,6 +35,6 @@ class FileStorage:
             with open(self.__file_path) as file:
                 deseri = json.loads(file.read())
             for key, value in deseri.items():
-                FileStorage.__objects[key] = key.split('.')[0](**value)
+                FileStorage.__objects[key] = FileStorage.clss[key.split('.')[0]](**value)
         except FileNotFoundError:
             pass
