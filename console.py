@@ -30,7 +30,7 @@ class HBNBCommand(cmd.Cmd):
         """when invalid input entered"""
         print("invalid command\n")
 
-    def do_creat(self, arg):
+    def do_create(self, arg):
         "to creat the BaseModel object"
         if not arg:
             print("** class name missing **")
