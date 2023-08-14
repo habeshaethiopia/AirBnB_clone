@@ -56,22 +56,27 @@ class HBNBCommand(cmd.Cmd):
                 self.do_destroy(var[0]+" " + id)
             if var[1].split("(")[0] == "update":
                 className = var[0]
-                if ":" in var[1] and "{" in var[1]:
-                    dit = json.loads("{"+var[1].replace(")", "").split("{")[1])
-                    for att_name, att_value in dic.items():
-                        self.do_update(var[0]+" " + var[1].split("(")[1].split(")")[0] + " " +
-                                       att_name+" " + att_value)
-                att = re.split(r'[(),]', var[1].replace(' ', ''))
-                if len(att) == 2:
-                    id = att[1]
-                    self.do_update(var[0]+" " + id)
+                att = var[1].split('(')[1]
+                att=att.replace(")" ,"")
+                if "," not in att:
+                    self.do_update(className + " " + att)
+                elif "," in att and ":" in att:
+                    id = att.split(", ",1)[0]
+                    dic = json.loads(att.split(", ",1)[1])
+                    for key, value in dic:
+                        self.do_update(className+' '+id + ' '+ key + ' ' + str(value))
+                elif len(att.split(', ')) == 2:
+                    id = att.split(', ',1)[0]
+                    att_name = att.split(', ',1)[1]
+                    self.do_update(className+' '+id + ' '+ att_name)
+                elif len(att.split(', ')) > 2:
+                    id = att.split(', ',)[0]
+                    att_name = att.split(', ',)[1]
+                    att_value = att.split(', ',)[2]
+                    self.do_update(className+' '+id + ' '+ att_name + ' ' + att_value)
+                else:
+                    print("Error\n")
 
-                if len(att) >= 4:
-                    id = att[1]
-                    att_name = att[2]
-                    att_value = att[3]
-                    self.do_update(var[0]+" " + id + " " +
-                                   att_name+" " + att_value)
 
         else:
             print("unknown command\n")
