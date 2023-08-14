@@ -56,13 +56,21 @@ class HBNBCommand(cmd.Cmd):
                 self.do_destroy(var[0]+" " + id)
             if var[1].split("(")[0] == "update":
                 className = var[0]
-                att = re.split(r'[(),]', var[1])
-                id = att[1]
-                att_name = att[2]
-                att_value = att[3]
+                if ":" in var[1] and "{" in var[1]:
+                    dit = json.loads("{"+var[1].replace(")", "").split("{")[1])
+                    for att_name, att_value in dic.items():
+                        self.do_update(var[0]+" " + var[1].split("(")[1].split(")")[0] + " " +
+                                       att_name+" " + att_value)
+                att = re.split(r'[(),]', var[1].replace(' ', ''))
+                if len(att) == 2:
+                    id = att[1]
+                    self.do_update(var[0]+" " + id)
 
-                self.do_update(var[0]+" " + id + " " +
-                               att_name+" " + att_value)
+                if len(att) == 4:
+                    att_name = att[2]
+                    att_value = att[3]
+                    self.do_update(var[0]+" " + id + " " +
+                                   att_name+" " + att_value)
 
         else:
             print("unknown command\n")
