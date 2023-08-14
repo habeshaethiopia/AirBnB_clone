@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """this is test files"""
 from models.place import Place
+import unittest
 
 
 class TestPlace(unittest.TestCase):
@@ -9,7 +10,7 @@ class TestPlace(unittest.TestCase):
     def test_init(self):
         """test"""
         obj = Place()
-        self.assertIsInstance(obj, place, "faile")
+        self.assertIsInstance(obj, Place, "faile")
         self.assertIsInstance(obj.city_id, str, "faile")
         self.assertIsInstance(obj.name, str, "faile")
         self.assertIsInstance(obj.description, str, "faile")
@@ -19,4 +20,6 @@ class TestPlace(unittest.TestCase):
         self.assertIsInstance(obj.price_by_night, int, "faile")
         self.assertIsInstance(obj.latitude, float, "faile")
         self.assertIsInstance(obj.amenity_ids, str, "faile")
-        self.assertIsInstance(obj.longitude, str, "faile")
+        self.assertIsInstance(obj.longitude, float, "faile")
+if __name__ == "__main__":
+    unittest.main()

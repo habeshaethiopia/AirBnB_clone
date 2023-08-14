@@ -5,10 +5,7 @@ from console import HBNBCommand
 
 
 class TestHBNBCommand(unittest.TestCase):
-    """the tests for the console"""
-
+    pass
 
 if __name__ == "__main__":
     unittest.main()
-with patch('sys.stdout', new=StringIO()) as f:
-    HBNBCommand().onecmd("help show")

@@ -2,7 +2,7 @@
 """this is test files"""
 from models.user import User
 
-
+import unittest
 class TestUser(unittest.TestCase):
     """test"""
 
@@ -14,3 +14,5 @@ class TestUser(unittest.TestCase):
         self.assertIsInstance(obj.password, str, "faile")
         self.assertIsInstance(obj.first_name, str, "faile")
         self.assertIsInstance(obj.last_name, str, "faile")
+if __name__ == "__main__":
+    unittest.main()
