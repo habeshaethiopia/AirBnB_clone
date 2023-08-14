@@ -10,17 +10,18 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 
+
 class FileStorage:
     """the file storage class"""
     clss = {
-            "User": User,
-            "BaseModel": BaseModel,
-            "Amenity": Amenity,
-            "City": City,
-            "Place": Place,
-            "Review": Review,
-            "State": State
-            }
+        "User": User,
+        "BaseModel": BaseModel,
+        "Amenity": Amenity,
+        "City": City,
+        "Place": Place,
+        "Review": Review,
+        "State": State
+    }
     __file_path = "models/engine/file.json"
     __objects = {}
 
@@ -42,8 +43,8 @@ class FileStorage:
             file.write(json.dumps(saved_dict))
 
     def reload(self):
-        deseri = {}
         """To relode from the json file"""
+        deseri = {}
         try:
             with open(self.__file_path) as file:
                 deseri = json.loads(file.read())

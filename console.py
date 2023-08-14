@@ -10,8 +10,8 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
-# for multiple splite
 import re
+# for multiple splite
 
 
 class HBNBCommand(cmd.Cmd):
@@ -57,31 +57,33 @@ class HBNBCommand(cmd.Cmd):
             if var[1].split("(")[0] == "update":
                 className = var[0]
                 att = var[1].split('(')[1]
-                att=att.replace(")" ,"")
+                att = att.replace(")", "")
                 if "," not in att:
                     self.do_update(className + " " + att)
                 elif "," in att and ":" in att:
-                    id = att.split(", ",1)[0]
-                    dic = json.loads(att.split(", ",1)[1])
+                    id = att.split(", ", 1)[0]
+                    dic = json.loads(att.split(", ", 1)[1])
                     for key, value in dic:
-                        self.do_update(className+' '+id + ' '+ key + ' ' + str(value))
+                        self.do_update(className+' '+id + ' ' +
+                                       key + ' ' + str(value))
                 elif len(att.split(', ')) == 2:
-                    id = att.split(', ',1)[0]
-                    att_name = att.split(', ',1)[1]
-                    self.do_update(className+' '+id + ' '+ att_name)
+                    id = att.split(', ', 1)[0]
+                    att_name = att.split(', ', 1)[1]
+                    self.do_update(className+' '+id + ' ' + att_name)
                 elif len(att.split(', ')) > 2:
                     id = att.split(', ',)[0]
                     att_name = att.split(', ',)[1]
                     att_value = att.split(', ',)[2]
-                    self.do_update(className+' '+id + ' '+ att_name + ' ' + att_value)
+                    self.do_update(className+' '+id + ' ' +
+                                   att_name + ' ' + att_value)
                 else:
                     print("Error\n")
-
 
         else:
             print("unknown command\n")
 
     def emptyline(self):
+        """for emptyline"""
         return 0
 
     def do_create(self, arg):

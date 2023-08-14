@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 class Place(BaseModel):
     """The base model is the parent of  this class"""
-    cuty_id = ""
+    city_id = ""
     user_id = ""
     name = ""
     description = ""
