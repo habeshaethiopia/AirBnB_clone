@@ -66,7 +66,8 @@ class HBNBCommand(cmd.Cmd):
                     id = att[1]
                     self.do_update(var[0]+" " + id)
 
-                if len(att) == 4:
+                if len(att) >= 4:
+                    id = att[1]
                     att_name = att[2]
                     att_value = att[3]
                     self.do_update(var[0]+" " + id + " " +
