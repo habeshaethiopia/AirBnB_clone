@@ -21,5 +21,7 @@ class TestPlace(unittest.TestCase):
         self.assertIsInstance(obj.latitude, float, "faile")
         self.assertIsInstance(obj.amenity_ids, str, "faile")
         self.assertIsInstance(obj.longitude, float, "faile")
+
+
 if __name__ == "__main__":
     unittest.main()

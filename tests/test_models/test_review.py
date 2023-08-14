@@ -4,6 +4,7 @@ from models.review import Review
 
 import unittest
 
+
 class TestReview(unittest.TestCase):
     """test"""
 
@@ -14,5 +15,7 @@ class TestReview(unittest.TestCase):
         self.assertIsInstance(obj.place_id, str, "faile")
         self.assertIsInstance(obj.user_id, str, "faile")
         self.assertIsInstance(obj.text, str, "faile")
+
+
 if __name__ == "__main__":
     unittest.main()
