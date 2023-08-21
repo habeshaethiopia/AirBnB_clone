@@ -1,0 +1,15 @@
+header {
+    background-color:white;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #cccccc;
+    vertical-align: center;
+    
+  }
+  header div.logo{ 
+    background-image: url("../images/logo.png");
+    width: auto;
+    height: 60px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+  }
